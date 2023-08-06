@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BMI Calculator</title>
+    <meta name="description" content="JS app to calculates Body Mass Index">
+    <meta name="author" content="Deepak">
+    <style>
+      body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: "Montserrat";
+  background: rgb(8, 20, 20);
+  background: linear-gradient(
+    0deg,
+    rgb(195, 34, 149) 0%,
+    rgb(45, 253, 97) 100%
+  );
+  min-height: 100vh;
+}
+.bmi {
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #4e06de;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+}
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.text {
+  text-align: center;
+}
+#weight,
+#height {
+  color: #121417;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 200;
+  outline: none;
+  border: 1px solid rgb(71, 21, 152);
+  border-radius: 7px;
+  width: 200px;
+  height: 35px;
+}
+#weight:focus,
+#height:focus {
+  width: 250px;
+  transition: 0.5s;
+}
+#result {
+  color: #e1d4e1;
+}
+#btn {
+  font-family: inherit;
+  margin-top: 10px;
+  border: none;
+  color: #0f0a0a;
+  background: rgb(189, 16, 16);
+  width: 150px;
+  padding: 10px;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#btn:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+table {
+  width: 650px;
+  border-collapse: collapse;
+  margin: 600px auto;
+}
+
+tr {
+  background: rgb(235, 246, 249);
+}
+
+th {
+  background: #b66809;
+  color: #120b0b;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #000;
+  text-align: center;
+  font-size: 18px;
+}
+    </style>
+   
+    <!--<link rel="stylesheet" href="style.css">-->
+     <!-- =====BOX ICONS===== -->
+    <!--<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'> -->
+  </head>
+  <body>
+    <div class="bmi">
+      <h2>Body Mass Index Calculator</h2>
+      <p class="text">Height in cm</p><input type="text" id="height">
+      <p class="text">Weight in kg</p><input type="text" id="weight">
+      <p id="result"></p><button id="btn">Calculate</button>
+    </div>
+    <div class="chart">
+      <table>
+        <thead>
+          <tr>
+            <th>BMI</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-column="bmi">less than 18.5</td>
+            <td data-column="category">Underweight</td>
+          </tr>
+          <tr>
+            <td data-column="bmi">between 18.5 and 24.9</td>
+            <td data-column="category">Ideal</td>
+          </tr>
+          <tr>
+            <td data-column="bmi">between 25 and 29.9</td>
+            <td data-column="category">Overweight</td>
+          </tr>
+          <!--
+            <tr>
+            <td data-column="bmi">over 30 </td>
+            <td data-column="category">Obesity</td>
+          </tr>
+        -->
+        </tbody>
+      </table>
+    </div>
+    <script>
+        document.getElementById("btn").addEventListener("click",function() {
+	var height_val = document.getElementById('height').value;
+	var weight_val = document.getElementById('weight').value;
+	var bmi = weight_val / (height_val / 100 * height_val / 100);
+	var bmio = (bmi.toFixed(2));
+ //document.getElementById("result").innerHTML = "Your BMI is " + bmio;
+ if(bmi<18.5){
+  result.innerHTML = "You are Underweight " + bmio;
+ }
+ else if(bmi<24.9){
+  result.innerHTML = "You are Ideal " + bmio; 
+ }
+ else{
+  result.innerHTML = "You are Overweight " + bmio;
+ }
+  });
+    </script>
+    <footer class="footer">
+      <p class="footer__title">Deepa Kumar Yadav</p>
+      <div class="footer__social">
+      </div>
+      <p>&copy; 2022 copyright all right reserved</p>
+     </footer>
+  </body>
+</html>
